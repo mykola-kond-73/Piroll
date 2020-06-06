@@ -1,0 +1,28 @@
+.footer{
+    background-color: #141414;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    font-size:11px;
+    height:150px ;
+}
+.footer,
+.nav span{
+    color:#9a9a9a;
+
+}
+.footer>div{
+    width:170px;
+}
+
+.title{
+    font-size:15px;
+    font-weight: 600;
+    color:white;
+    margin-bottom:25px;
+}
+
+.address{
+    position: relative;
+    top:-10px;
+}
