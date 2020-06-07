@@ -1,10 +1,10 @@
 import React, {FC} from 'react'
-import BriegInfo from './BriefInfo/BriefInfo'
+import BriefInfoContainer from './BriefInfo/BriefInfoContainer'
 
 const Home:FC=()=>{
     return(
         <div>
-            <BriegInfo/>
+            <BriefInfoContainer/>
         </div>
     )
 }

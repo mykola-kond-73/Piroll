@@ -1,7 +1,7 @@
-import React,{FC} from 'react'
+import React, { FC } from 'react'
 
-const Image:FC<propsType>=props=>{
-    return(
+const Image: FC<propsType> = props => {
+    return (
         <div>
             <img src={props.src} alt={props.alt} />
         </div>

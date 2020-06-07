@@ -6,12 +6,14 @@ import {
 } from 'redux'
 import  thunkMiddleware from 'redux-thunk' // імпорт проміжного рівня thunk mw
 import { reducer as formReducer } from 'redux-form'
+import homeReducer from '../redux/redusers/homeReducer'
 
 type RootReducerType=typeof reducers
 export type AppStateType=ReturnType<RootReducerType>
 
 let reducers=combineReducers({
-    form: formReducer
+    form: formReducer,
+    home:homeReducer
 })
 //@ts-ignore
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

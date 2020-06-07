@@ -16,16 +16,16 @@ const Footer: FC = () => {
                 <div>44 987 065 908</div>
             </address>
             <nav className={classes.nav}>
-                <div><NavLink to='/work' ><span>span>Work</span></NavLink></div>
+                <div><NavLink to='/work' ><span>Work</span></NavLink></div>
                 <div><NavLink to='/about' ><span>About</span></NavLink></div>
                 <div><NavLink to='/services' ><span>Services</span></NavLink></div>
                 <div><NavLink to='/contact' ><span>Contact</span></NavLink></div>
             </nav>
             <nav className={classes.nav}>
-                <div><NavLink to='facebook.com' ><span>Facebook</span></NavLink> </div>
-                <div><NavLink to='twitter.com' ><span>Twitter</span></NavLink> </div>
-                <div><NavLink to='instagram.com' ><span>Instagram</span></NavLink> </div>
-                <div><NavLink to='dribbble.com' ><span>Dribbble</span></NavLink> </div>
+                <div><a target='blank' href='https://www.facebook.com' ><span>Facebook</span></a> </div>
+                <div><a target='blank' href='twitter.com' ><span>Twitter</span></a> </div>
+                <div><a target='blank' href='instagram.com' ><span>Instagram</span></a> </div>
+                <div><a target='blank' href='dribbble.com' ><span>Dribbble</span></a> </div>
             </nav>
         </footer>
     )
