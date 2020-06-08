@@ -1,0 +1,21 @@
+.rootTextInfo {
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textInfo>div {
+    font-family: 'Nunito Sans';
+}
+
+.textInfo>div>div {
+    position: relative;
+    left: 40%;
+    width: 100px;
+}
+
+.textInfo>div>p {
+    width: 550px;
+    text-align: center;
+}

@@ -19,3 +19,19 @@ export const getTitleHomeAboutMe=(state:AppStateType)=>{
 export const getTextHomeAboutMe=(state:AppStateType)=>{
     return state.home.textHomeAboutMe
 }
+
+export const getDesign=(state:AppStateType)=>{
+    return state.home.design
+}
+
+export const getDevelopment=(state:AppStateType)=>{
+    return state.home.development
+}
+
+export const getMarketing=(state:AppStateType)=>{
+    return state.home.marketing
+}
+
+export const getReview=(state:AppStateType)=>{
+    return state.home.reviews
+}

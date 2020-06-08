@@ -1,0 +1,27 @@
+.reviewContainer>div{
+    background-color: #10c9c3;
+    color:white;
+    height: 150px;
+    justify-content: space-around;
+    font-family: 'Nunito Sans';
+}
+
+.reviewContainer>div,
+.review{
+    display: flex;
+    align-items: center;
+}
+
+.content{
+    padding-left:20px;
+}
+
+.value{
+    font-weight: 500;
+    padding-bottom: 5px;
+}
+
+.text{
+    font-size:9px;
+    letter-spacing: 0.7px;
+}

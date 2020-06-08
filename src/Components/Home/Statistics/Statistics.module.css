@@ -1,0 +1,51 @@
+.statistics{
+    background-color: #b3b3b3;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+}
+
+.statistics>div>h2{
+    margin-bottom: 30px;
+}
+
+.lineBlock{
+    font-weight: 100;
+    font-size: 7px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    position: relative;
+    left:-100px;
+}
+
+.lineBlock>span>span{
+    padding-left: 15px;
+    font-size: 10px;
+}
+
+.greyLine{
+    width: 400px;
+    height: 3.5px;
+    background-color: #878787;
+    margin: 15px 0 30px 0 ;
+    opacity: 0.5;
+}
+
+.bluLine{
+    background-color: #10c9c3;
+    opacity: 1;
+    font-size: 3.5px;
+}
+
+.greyLine,
+.bluLine{
+    border-radius: 3px;
+}
+
+.img>div>img{
+    position: relative;
+    bottom: -2px;
+    right:-70px;
+    width: 300px;
+}
