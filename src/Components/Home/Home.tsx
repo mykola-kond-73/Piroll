@@ -11,6 +11,8 @@ import { getFaceProgect } from '../../redux/redusers/projectReducer'
 import { actionsHome } from '../../redux/redusers/homeReducer'
 import { getIsFetching } from '../../redux/selectors/homeSelector'
 
+// todo>>> переробити цю контейнерну компоненту в єдину в цьому дереві  
+
 class HomeContainer extends React.Component<Props> {
     first() {
         let promise = Promise.all([getHomeContent(), getReviewContent(), getFaceProgect()]).then(() => {
