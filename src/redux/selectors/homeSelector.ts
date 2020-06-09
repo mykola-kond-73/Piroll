@@ -35,3 +35,7 @@ export const getMarketing=(state:AppStateType)=>{
 export const getReview=(state:AppStateType)=>{
     return state.home.reviews
 }
+
+export const getIsFetching=(state:AppStateType)=>{
+    return state.home.isFetching
+}
