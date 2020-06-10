@@ -1,10 +1,9 @@
 import React, { FC } from 'react'
 import classes from './Statistics.module.css'
 import src from '../../../media/images/alesia-kazantceva-E8dAbseeFLo-unsplash.jpg'
-import { StatisticsPropsType } from './StatisticsContainer'
 import Image from '../../Fragment/Image/Image'
 
-const Statistics: FC<StatisticsPropsType> = props => {
+const Statistics: FC<propsType> = props => {
     return (
         <div className={classes.statistics}>
             <div>
@@ -45,3 +44,9 @@ const Statistics: FC<StatisticsPropsType> = props => {
 }
 
 export default Statistics
+
+type propsType = {
+    design:number
+    development:number
+    marketing:number
+}

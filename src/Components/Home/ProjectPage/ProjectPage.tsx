@@ -1,8 +1,7 @@
 import React,{FC} from 'react'
 import classes from './ProjectPage.module.css'
-import { ProjectPagePropsType } from './ProjectPageContainer'
 
-const ProjectPage:FC<ProjectPagePropsType>=props=>{
+const ProjectPage:FC<propsType>=props=>{
     return(
         <div>
 
@@ -11,3 +10,7 @@ const ProjectPage:FC<ProjectPagePropsType>=props=>{
 }
 
 export default ProjectPage
+
+type propsType={
+    
+}

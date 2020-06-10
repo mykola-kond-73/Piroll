@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 import classes from './Reviews.module.css'
-import { ReviewsPropsType } from './ReviewsContainer'
 import Image from '../../Fragment/Image/Image'
+import { reviewsType } from '../../../redux/redusers/homeReducer'
 
-const Reviews: FC<ReviewsPropsType> = props => {
+const Reviews: FC<propsType> = props => {
     return (
         <div className={classes.reviewContainer}>
             <div>
@@ -32,3 +32,7 @@ const Reviews: FC<ReviewsPropsType> = props => {
 }
 
 export default Reviews
+
+type propsType={
+    reviews:Array<reviewsType>
+}

@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './redux/redux'
 import Nav from './Components/Header/Header'
-import Home from './Components/Home/Home'
+import Home from './Components/Home/HomeContainer'
 import Footer from './Components/Footer/Footer'
 
 const App = () => {

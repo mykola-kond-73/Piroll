@@ -4,9 +4,8 @@ import src from '../../../media/images/daniel-korpai-2nxugQEgsOc-unsplash.jpg'
 import Image from '../../Fragment/Image/Image'
 import TextInfo from '../../Fragment/TextInfo/TextInfo'
 import AButton from '../../Fragment/A_Button/A_Button'
-import { Props } from './BriefInfoContainer'
 
-const BriegInfo: FC<Props> = props => {
+const BriegInfo: FC<propsType> = props => {
     return (
         <div className={classes.briegInfo}>
             <div className={classes.container}>
@@ -25,3 +24,9 @@ const BriegInfo: FC<Props> = props => {
 }
 
 export default BriegInfo
+
+type propsType = {
+    title:string
+    text:string
+    textButton:string
+}

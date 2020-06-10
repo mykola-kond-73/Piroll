@@ -1,17 +1,20 @@
 import React from 'react'
-import BriefInfoContainer from './BriefInfo/BriefInfoContainer'
-import HomeAboutMeContainer from './HomeAboutMe/HomeAboutMeContainer'
-import StatisticsContainer from './Statistics/StatisticsContainer'
-import ReviewsContainer from './Reviews/ReviewsContainer'
-import ProjectPageContainer from './ProjectPage/ProjectPageContainer'
+import BriefInfo from './BriefInfo/BriefInfo'
+import HomeAboutMe from './HomeAboutMe/HomeAboutMe'
+import Statistics from './Statistics/Statistics'
+import Reviews from './Reviews/Reviews'
+import ProjectPage from './ProjectPage/ProjectPage'
 import { AppStateType } from '../../redux/redux'
 import { connect, ConnectedProps } from 'react-redux'
 import { getHomeContent, getReviewContent } from '../../redux/redusers/homeReducer'
 import { getFaceProgect } from '../../redux/redusers/projectReducer'
 import { actionsHome } from '../../redux/redusers/homeReducer'
-import { getIsFetching } from '../../redux/selectors/homeSelector'
-
-// todo>>> переробити цю контейнерну компоненту в єдину в цьому дереві  
+import {
+    getIsFetching, getTitleBrief, getTextBrief,
+    getTextButtonBrief, getTitleHomeAboutMe, getTextHomeAboutMe,
+    getMarketing, getDevelopment, getDesign,
+    getReview
+} from '../../redux/selectors/homeSelector'
 
 class HomeContainer extends React.Component<Props> {
     first() {
@@ -36,19 +39,19 @@ class HomeContainer extends React.Component<Props> {
 
                 <div>
                     <div>
-                        <BriefInfoContainer />
+                        <BriefInfo title={this.props.briefInfoTitle} text={this.props.briefInfoText} textButton={this.props.briefInfoTextButton} />
                     </div>
                     <div>
-                        <HomeAboutMeContainer />
+                        <HomeAboutMe title={this.props.homeAboutMeTitle} text={this.props.homeAboutMeText} />
                     </div>
                     <div>
-                        <StatisticsContainer />
+                        <Statistics design={this.props.design} development={this.props.development} marketing={this.props.marketing} />
                     </div>
                     <div>
-                        <ReviewsContainer />
+                        <Reviews reviews={this.props.reviews} />
                     </div>
                     <div>
-                        <ProjectPageContainer />
+                        <ProjectPage />
                     </div>
                 </div>
             )
@@ -58,7 +61,20 @@ class HomeContainer extends React.Component<Props> {
 
 const mapStateToProps = (state: AppStateType) => {
     return {
-        isFetching: getIsFetching(state)
+        isFetching: getIsFetching(state),
+
+        briefInfoTitle: getTitleBrief(state),
+        briefInfoText: getTextBrief(state),
+        briefInfoTextButton: getTextButtonBrief(state),
+
+        homeAboutMeTitle: getTitleHomeAboutMe(state),
+        homeAboutMeText: getTextHomeAboutMe(state),
+
+        design: getDesign(state),
+        development: getDevelopment(state),
+        marketing: getMarketing(state),
+
+        reviews: getReview(state),
     }
 }
 
