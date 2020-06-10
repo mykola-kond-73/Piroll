@@ -1,7 +1,7 @@
-import { Dispatch } from 'react';
 import { InfinitActionsCreatorType, BaseThunkType } from '../../Components/Types/Tepes'
-import { projectAPI } from '../../API/projectAPI';
-import { ResultCodeEnum } from '../../API/API';
+import { projectAPI } from '../../API/projectAPI'
+import { ResultCodeEnum } from '../../API/API'
+import src from '../../media/images/monika-grabkowska-_efCc8CPwhM-unsplash.jpg'
 
 const initialState = {
     homeProject: [
@@ -39,19 +39,21 @@ const initialState = {
         },
     ] as Array<homeProjectType>,
 
-    progectPage: [
-        {
-            img: '',
-            projectId: 1,
-            text: 'Light his can`t a creeping. Be, bring blessed night. Replenish blessed creature good. Saw earth every creepeth lights day, divided abundantly form. In. Said given lights. Sixth the male. Upon their multiply. Kind beast. Him tree upon.',
-            client: 'Emma Morris',
-            date: '25.06.2017',
-            share: 'Facebook, Twitter, Pinterest'
-        }
-    ] as Array<projectPageType & homeProjectType>,
+    progectPage:
+    {
+        img: src,
+        projectId: 1,
+        title: 'Light Breakfast',
+        text: 'Light his can`t a creeping. Be, bring blessed night. Replenish blessed creature good. Saw earth every creepeth lights day, divided abundantly form. In. Said given lights. Sixth the male. Upon their multiply. Kind beast. Him tree upon.',
+        client: 'Emma Morris',
+        date: '25.06.2017',
+        share: 'Facebook, Twitter, Pinterest'
+    },
 
     pageSize: 8,
     tototalProjectCount: 548,
+
+    isFetchingProject: false
 }
 
 const projectReducer = (state = initialState, actions: actionsProjectType) => {
@@ -72,7 +74,7 @@ const projectReducer = (state = initialState, actions: actionsProjectType) => {
         case 'ADD_PROJECT_PAGE':
             return {
                 ...state,
-                projectPage: [...state.progectPage, actions.projectPageData]
+                projectPage: actions.projectPageData
             }
 
         default:
@@ -84,10 +86,10 @@ export const actionsProject = {
     addHomeProject: (homeProgect: homeProjectType, tototalProjectCount: number) => ({ type: 'ADD_HOME_PROJECT', homeProgect, tototalProjectCount } as const),
     addProjectPage: (projectPageData: projectPageType | homeProjectType) => ({ type: 'ADD_PROJECT_PAGE', projectPageData } as const),
     updatePageSize: (newPageSize: number) => ({ type: 'UP_DATE_PAGESIZE', newPageSize } as const),
-
+    updateIsFetchingProject: (isFetching: boolean) => ({ type: 'UP_DATE_IS_FECTHING_PROJECT', isFetching } as const)
 }
 
-export const getFaceProgect = (pageSize=8): projectThunkType => async (dispatch) => {
+export const getFaceProgect = (pageSize = 8): projectThunkType => async (dispatch) => {
     let response = await projectAPI.getFaceProject(pageSize)
 
     if (response.resultCode === ResultCodeEnum.Succes) {
@@ -100,6 +102,7 @@ export const getBodyProject = (projectId: number): projectThunkType => async (di
 
     if (response.resultCode === ResultCodeEnum.Succes) {
         dispatch(actionsProject.addProjectPage(response.data))
+        dispatch(actionsProject.updateIsFetchingProject(true))
     }
 }
 
@@ -117,6 +120,7 @@ export type homeProjectType = {
 }
 
 export type projectPageType = {
+    title: string
     text: string
     client: string
     date: string

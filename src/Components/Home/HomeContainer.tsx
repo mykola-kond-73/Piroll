@@ -3,7 +3,6 @@ import BriefInfo from './BriefInfo/BriefInfo'
 import HomeAboutMe from './HomeAboutMe/HomeAboutMe'
 import Statistics from './Statistics/Statistics'
 import Reviews from './Reviews/Reviews'
-import ProjectPage from './ProjectPage/ProjectPage'
 import { AppStateType } from '../../redux/redux'
 import { connect, ConnectedProps } from 'react-redux'
 import { getHomeContent, getReviewContent } from '../../redux/redusers/homeReducer'
@@ -15,6 +14,9 @@ import {
     getMarketing, getDevelopment, getDesign,
     getReview
 } from '../../redux/selectors/homeSelector'
+import HomeProjectPageContainer from './HomeProjectPage/HomeProjectPageContainer'
+import Preloader from '../Fragment/Preloader/Preloader'
+import src from '../../media/icons/png/multimedia.png'
 
 class HomeContainer extends React.Component<Props> {
     first() {
@@ -26,14 +28,10 @@ class HomeContainer extends React.Component<Props> {
         this.first()
     }
 
-    componentWillMount() {
-        this.props.updateIsFetching(false)
-    }
-
     render() {
 
         if (!this.props.isFetching) {
-            return <div>load</div>
+            return <Preloader img={src} />
         } else {
             return (
 
@@ -51,7 +49,7 @@ class HomeContainer extends React.Component<Props> {
                         <Reviews reviews={this.props.reviews} />
                     </div>
                     <div>
-                        <ProjectPage />
+                        <HomeProjectPageContainer/>
                     </div>
                 </div>
             )

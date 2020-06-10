@@ -6,6 +6,7 @@ import store from './redux/redux'
 import Nav from './Components/Header/Header'
 import Home from './Components/Home/HomeContainer'
 import Footer from './Components/Footer/Footer'
+import WorkContainer from './Components/Work/WorkContainer'
 
 const App = () => {
   return (
@@ -14,13 +15,14 @@ const App = () => {
         <Provider store={store}>
           <Nav />
           <Switch>
-            <Route path='/home' render={()=><Home/>} />
-          {/* <Route path='/about' render={()=>} />
-          <Route path='/work' render={()=>} />
+            <Route path='/home' render={() => <Home />} />
+            <Route path='/work/:projectId?' render={() => <WorkContainer />} />
+            {/*   
+          <Route path='/about' render={()=>} />
           <Route path='/process' render={()=>} />
           <Route path='/services' render={()=>} />
           <Route path='/testmonials' render={()=>} />
-          <Route path='/contact' render={()=>} /> */}
+          <Route path='/contact' render={()=>} />  */}
           </Switch>
           {/* <Footer/> */}
         </Provider>

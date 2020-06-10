@@ -1,0 +1,21 @@
+.container{
+    position: relative;
+    top:50px;
+    font-family:'Nunito Sans', Arial;
+    
+}
+
+.container>div{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #f6f6f6;
+}
+
+.text{
+    padding-right: 75px;
+}
+
+.img>div>img{
+    width:550px;
+}

@@ -1,0 +1,44 @@
+.buttonProject,
+.toWork,
+.inNavLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-areas:
+        "p w n";
+
+    grid-template-rows: 100px;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    position: relative;
+    top: 28px;
+
+    align-items: center;
+}
+
+.buttonProject {
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.buttonProject img{
+    width: 10px;
+    padding: 0 15px;
+}
+
+.prev {
+    grid-area: p
+}
+
+.toWork {
+    grid-area: w
+}
+
+.next {
+    grid-area: n
+}
