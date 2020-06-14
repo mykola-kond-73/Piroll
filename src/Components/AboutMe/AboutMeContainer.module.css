@@ -1,0 +1,87 @@
+.container {
+    position: relative;
+    top: 50px;
+    font-family: Arial;
+}
+
+.container>header {
+    height: 200px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* color:white; */
+    /* background-image: ; */
+}
+
+.container>header>div>p {
+    font-size: 14px;
+    width: 400px;
+
+}
+
+.body {
+    background-color: #f5f5f5;
+}
+
+.body,
+.needProjectImg {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+}
+
+.bodyText>div>div,
+.container>header>div>div,
+.needProjectImg>div>div {
+    font-weight: 600;
+    font-size: 22px;
+    padding-bottom: 10px;
+}
+
+.bodyText>div>p {
+    width: 380px;
+    text-align: left;
+    position: relative;
+    left: 100px;
+}
+
+.bodyText>div>p,
+.needProjectImg>div>p {
+    color: #adacac;
+    font-size: 13px;
+}
+
+.bodyImg>div>img {
+    width: 400px;
+}
+
+.needProject {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    padding: 70px;
+}
+
+.needProjectImg>div>p {
+    width: 440px;
+    text-align: center;
+}
+
+.needProjectImg {
+    padding-bottom: 30px;
+}
+
+.needProjectText {
+    background-color: #10c9c3;
+    padding: 15px 30px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.needProjectText a {
+    color: white;
+}

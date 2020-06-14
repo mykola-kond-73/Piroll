@@ -12,11 +12,12 @@ import {
     getIsFetching, getTitleBrief, getTextBrief,
     getTextButtonBrief, getTitleHomeAboutMe, getTextHomeAboutMe,
     getMarketing, getDevelopment, getDesign,
-    getReview
+    getReview,getServices
 } from '../../redux/selectors/homeSelector'
 import HomeProjectPageContainer from './HomeProjectPage/HomeProjectPageContainer'
 import Preloader from '../Fragment/Preloader/Preloader'
 import src from '../../media/icons/png/multimedia.png'
+import Services from './Services/Services'
 
 class HomeContainer extends React.Component<Props> {
     first() {
@@ -51,6 +52,9 @@ class HomeContainer extends React.Component<Props> {
                     <div>
                         <HomeProjectPageContainer/>
                     </div>
+                    <div>
+                        <Services services={this.props.services} />
+                    </div>
                 </div>
             )
         }
@@ -73,6 +77,8 @@ const mapStateToProps = (state: AppStateType) => {
         marketing: getMarketing(state),
 
         reviews: getReview(state),
+
+        services:getServices(state)
     }
 }
 

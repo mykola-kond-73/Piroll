@@ -6,38 +6,41 @@ import Image from '../../Fragment/Image/Image'
 const Statistics: FC<propsType> = props => {
     return (
         <div className={classes.statistics}>
-            <div>
-                <h2>
-                    Professional Skills
+            <div className={classes.statistic}>
+                <div>
+                    <h2>
+                        Professional Skills
                 </h2>
-                <div className={classes.lineBlock}>
-                    <span>UI/UX DESIGN  <span>{props.design}%</span></span>
-                    <div className={classes.greyLine}>
-                        <div className={classes.bluLine} style={{ width: `${props.design}%` }}>
-                            &nbsp;
+                    <div className={classes.lineBlock}>
+                        <span>UI/UX DESIGN  <span>{props.design}%</span></span>
+                        <div className={classes.greyLine}>
+                            <div className={classes.bluLine} style={{ width: `${props.design}%` }}>
+                                &nbsp;
+                        </div>
+                        </div>
+                    </div>
+                    <div className={classes.lineBlock}>
+                        <span>WEB DEVELOPMENT  <span>{props.development}%</span> </span>
+                        <div className={classes.greyLine}>
+                            <div className={classes.bluLine} style={{ width: `${props.development}%` }}>
+                                &nbsp;
+                        </div>
+                        </div>
+                    </div>
+                    <div className={classes.lineBlock}>
+                        <span>MARKETING  <span>{props.marketing}%</span> </span>
+                        <div className={classes.greyLine}>
+                            <div className={classes.bluLine} style={{ width: `${props.marketing}%` }}>
+                                &nbsp;
+                        </div>
                         </div>
                     </div>
                 </div>
-                <div className={classes.lineBlock}>
-                    <span>WEB DEVELOPMENT  <span>{props.development}%</span> </span>
-                    <div className={classes.greyLine}>
-                        <div className={classes.bluLine} style={{ width: `${props.development}%` }}>
-                            &nbsp;
-                        </div>
-                    </div>
-                </div>
-                <div className={classes.lineBlock}>
-                    <span>MARKETING  <span>{props.marketing}%</span> </span>
-                    <div className={classes.greyLine}>
-                        <div className={classes.bluLine} style={{ width: `${props.marketing}%` }}>
-                            &nbsp;
-                        </div>
-                    </div>
-                </div>
-
             </div>
             <div className={classes.img}>
-                <Image src={src} alt='***' />
+                <div>
+                    <Image src={src} alt='***' />
+                </div>
             </div>
         </div>
     )
@@ -46,7 +49,7 @@ const Statistics: FC<propsType> = props => {
 export default Statistics
 
 type propsType = {
-    design:number
-    development:number
-    marketing:number
+    design: number
+    development: number
+    marketing: number
 }

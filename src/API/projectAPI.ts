@@ -1,5 +1,5 @@
 import { instance, ResponseTypes } from './API'
-import { homeProjectType, projectPageType } from '../redux/redusers/projectReducer'
+import { homeProjectType, projectPageType, workTitleTextType } from '../redux/redusers/projectReducer'
 
 export const projectAPI = {
     getFaceProject(pageSize: number) {
@@ -7,6 +7,9 @@ export const projectAPI = {
     },
     getBodyProject(projectId:number) {
         return instance.get<ResponseTypes<projectPageType>>('').then(response => response.data)
+    },
+    getWorkTitleText(){
+        return instance.get<ResponseTypes<workTitleTextType>>('').then(responce=>responce.data)
     }
 }
 

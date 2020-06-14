@@ -5,9 +5,11 @@ import { compose } from 'redux'
 import { withRouter, RouteComponentProps } from 'react-router'
 import ProjectPageContainer from './ProjectPage/ProjectPageContainer'
 import SeparatePageContainer from './ProjectPage/SeparatePage/SeparatePageContainer'
-import { getPageSize } from '../../redux/selectors/projectSelector'
-import {getFaceProgect, actionsProject} from '../../redux/redusers/projectReducer'
-import {incrementFunction} from '../../Untils/Until'
+import { getPageSize, getWorkTitle, getWorkText } from '../../redux/selectors/projectSelector'
+import { getFaceProgect, actionsProject, getWorkTitleTextContent } from '../../redux/redusers/projectReducer'
+import { incrementFunction } from '../../Untils/Until'
+import TextInfo from '../Fragment/TextInfo/TextInfo'
+import classes from './Work.module.css'
 
 class WorkContainer extends React.Component<Props & PropsType>{
 
@@ -17,17 +19,18 @@ class WorkContainer extends React.Component<Props & PropsType>{
 
     componentDidMount() {
         this.getProgectContent()
+        this.props.getWorkTitleTextContent()
     }
 
     componentDidUpdate(prevProps: Props) {
-        if(prevProps.pageSize != this.props.pageSize){
+        if (prevProps.pageSize != this.props.pageSize) {
             this.getProgectContent()
         }
     }
 
     updatePageSize() {
         // this.props.updatePageSize(this.props.pageSize + 12)
-        this.props.incrementFunction(this.props.updatePageSize,12,this.props.pageSize)
+        this.props.incrementFunction(this.props.updatePageSize, 12, this.props.pageSize)
     }
 
 
@@ -37,23 +40,30 @@ class WorkContainer extends React.Component<Props & PropsType>{
             return <SeparatePageContainer />
         } else {
             return (
-                <div>
-                    <ProjectPageContainer />
+                <div className={classes.container}>
+                    <div className={classes.textInfo}>
+                        <TextInfo title={this.props.workTitle} text={this.props.workText} />
+                    </div>
+                    <div className={classes.project}>
+                        <ProjectPageContainer />
+                    </div>
                 </div>
             )
         }
     }
 }
 
-const mapStateToProps=(state:AppStateType)=>{
-    return{
-        pageSize:getPageSize(state),
+const mapStateToProps = (state: AppStateType) => {
+    return {
+        pageSize: getPageSize(state),
+        workTitle: getWorkTitle(state),
+        workText: getWorkText(state)
     }
 }
 
-const updatePageSize=actionsProject.updatePageSize 
+const updatePageSize = actionsProject.updatePageSize
 
-const connector = connect(mapStateToProps, {getFaceProgect,updatePageSize,incrementFunction})
+const connector = connect(mapStateToProps, { getFaceProgect, updatePageSize, incrementFunction, getWorkTitleTextContent })
 
 export default compose<ComponentType>(
     connector,

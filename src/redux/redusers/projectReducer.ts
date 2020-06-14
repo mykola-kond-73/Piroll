@@ -53,7 +53,10 @@ const initialState = {
     pageSize: 8,
     tototalProjectCount: 548,
 
-    isFetchingProject: false
+    isFetchingProject: false,
+
+    workTitle: 'UI/UX & Graphic Designer',
+    workText: 'I am a Graphic & Web Designer based in New York, specializing in User Interface Design and Development.'
 }
 
 const projectReducer = (state = initialState, actions: actionsProjectType) => {
@@ -77,6 +80,19 @@ const projectReducer = (state = initialState, actions: actionsProjectType) => {
                 projectPage: actions.projectPageData
             }
 
+        case 'ADD_WORK_TITLE_TEXT':
+            return {
+                ...state,
+                workTitle: actions.workTitleText.workTitle,
+                workText: actions.workTitleText.workText,
+            }
+
+            case 'UP_DATE_IS_FECTHING_PROJECT':
+                return{
+                    ...state,
+                    isFetching:actions.isFetching
+                }
+
         default:
             return state
     }
@@ -85,6 +101,7 @@ const projectReducer = (state = initialState, actions: actionsProjectType) => {
 export const actionsProject = {
     addHomeProject: (homeProgect: homeProjectType, tototalProjectCount: number) => ({ type: 'ADD_HOME_PROJECT', homeProgect, tototalProjectCount } as const),
     addProjectPage: (projectPageData: projectPageType | homeProjectType) => ({ type: 'ADD_PROJECT_PAGE', projectPageData } as const),
+    addWorkTitleText: (workTitleText: workTitleTextType) => ({ type: 'ADD_WORK_TITLE_TEXT', workTitleText } as const),
     updatePageSize: (newPageSize: number) => ({ type: 'UP_DATE_PAGESIZE', newPageSize } as const),
     updateIsFetchingProject: (isFetching: boolean) => ({ type: 'UP_DATE_IS_FECTHING_PROJECT', isFetching } as const)
 }
@@ -103,6 +120,14 @@ export const getBodyProject = (projectId: number): projectThunkType => async (di
     if (response.resultCode === ResultCodeEnum.Succes) {
         dispatch(actionsProject.addProjectPage(response.data))
         dispatch(actionsProject.updateIsFetchingProject(true))
+    }
+}
+
+export const getWorkTitleTextContent=():projectThunkType=>async (dispatch)=>{
+    let responce=await projectAPI.getWorkTitleText()
+
+    if(responce.resultCode===ResultCodeEnum.Succes){
+        dispatch(actionsProject.addWorkTitleText(responce.data))
     }
 }
 
@@ -125,4 +150,9 @@ export type projectPageType = {
     client: string
     date: string
     share: string
+}
+
+export type workTitleTextType = {
+    workTitle: string
+    workText: string
 }

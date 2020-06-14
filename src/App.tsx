@@ -7,6 +7,7 @@ import Nav from './Components/Header/Header'
 import Home from './Components/Home/HomeContainer'
 import Footer from './Components/Footer/Footer'
 import WorkContainer from './Components/Work/WorkContainer'
+import AboutMeContainer from './Components/AboutMe/AboutMeContainer'
 
 const App = () => {
   return (
@@ -17,8 +18,8 @@ const App = () => {
           <Switch>
             <Route path='/home' render={() => <Home />} />
             <Route path='/work/:projectId?' render={() => <WorkContainer />} />
+            <Route path='/about' render={() =><AboutMeContainer/> } />
             {/*   
-          <Route path='/about' render={()=>} />
           <Route path='/process' render={()=>} />
           <Route path='/services' render={()=>} />
           <Route path='/testmonials' render={()=>} />

@@ -15,3 +15,11 @@ export const getPageSize=(state:AppStateType)=>{
 export const getTotalProjectCount=(state:AppStateType)=>{
     return state.project.tototalProjectCount
 }
+
+export const getWorkTitle=(state:AppStateType)=>{
+    return state.project.workTitle
+}
+
+export const getWorkText=(state:AppStateType)=>{
+    return state.project.workText
+}
