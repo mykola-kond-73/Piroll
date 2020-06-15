@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 import TextInfo from '../../Fragment/TextInfo/TextInfo'
-import Image from '../../Fragment/Image/Image'
 import classes from './HomeAboutMe.module.css'
 import classesBriefInfo from '../BriefInfo/BriefInfo.module.css'
 

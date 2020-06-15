@@ -25,7 +25,7 @@ const App = () => {
           <Route path='/testmonials' render={()=>} />
           <Route path='/contact' render={()=>} />  */}
           </Switch>
-          {/* <Footer/> */}
+          <Footer/>
         </Provider>
       </BrowserRouter>
     </div>

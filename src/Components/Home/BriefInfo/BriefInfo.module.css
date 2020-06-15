@@ -9,54 +9,67 @@
     z-index: 1;
 }
 
-.container{
+.container {
     align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .briegInfo,
-.container{
+.container {
     display: flex;
     justify-content: space-around;
 }
 
 .container>div>img {
     width: 300px;
-    margin-left:70px;
+    /* margin-left: 70px; */
     opacity: 0.9;
     border-radius: 30px;
 }
 
-.textInfo>div{
+.textInfo>div {
     margin-left: 10px;
 }
 
 .briegInfo,
-.textInfo>div{
+.textInfo>div {
     position: relative;
 }
 
 .textInfo>div>div {
     font-size: 23px;
     font-weight: 700;
-    padding-bottom:15px;
+    padding-bottom: 15px;
 }
 
-.textInfo>div>p{
-    width:260px ;
+.textInfo>div>p {
+    width: 260px;
     line-height: 15px;
     text-align: justify;
-    color:#7a7c7c;
+    color: #7a7c7c;
 }
 
-.aButton>div>div{
-    margin:25px 0;
+.aButton>div>div {
+    margin: 25px 0;
     padding: 13px 0;
-    width:150px;
+    width: 150px;
     background-color: #10c9c3;
     text-align: center;
 }
 
-.aButton>div>div>a>span{
+.aButton>div>div>a>span {
     font-size: 10px;
-    color:white;
+    color: white;
+}
+
+@media (max-width:600px){
+    
+    .briegInfo{
+        height:700px;
+    }
+    .container img{
+        padding-bottom: 15px;
+    }
+
 }

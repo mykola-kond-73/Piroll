@@ -10,7 +10,7 @@ const BriegInfo: FC<propsType> = props => {
         <div className={classes.briegInfo}>
             <div className={classes.container}>
                 <Image src={src} alt='***' />
-                <div>
+                <div className={classes.content}>
                     <div className={classes.textInfo}>
                         <TextInfo title={props.title} text={props.text} />
                     </div>

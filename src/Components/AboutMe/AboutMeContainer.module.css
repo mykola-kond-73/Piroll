@@ -44,10 +44,8 @@
 .bodyText>div>p {
     width: 380px;
     text-align: left;
-    position: relative;
-    left: 100px;
+    padding-left: 100px;
 }
-
 .bodyText>div>p,
 .needProjectImg>div>p {
     color: #adacac;
@@ -84,4 +82,40 @@
 
 .needProjectText a {
     color: white;
+}
+
+@media(max-width:500px){
+    .container>header{
+        width:200px;
+    }
+}
+
+@media(max-width:880px) and (min-width:650px){
+    .bodyImg>div>img{
+        width:300px;
+    }
+
+    .bodyText>div>p{
+        width:300px;
+        padding-left: 50px;
+    }
+}
+
+@media(max-width:650px){
+    .body{
+        justify-content: center;
+    }
+    
+    .bodyImg>div>img{
+        width:300px;
+    }
+
+    .bodyText>div>p{
+        width:300px;
+        padding-left: 0px;
+    }
+
+    .needProjectImg>div>p{
+        width:300px
+    }
 }

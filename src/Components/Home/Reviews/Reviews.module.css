@@ -3,6 +3,7 @@
     color:white;
     height: 150px;
     justify-content: space-around;
+    flex-wrap: wrap;
     font-family: 'Nunito Sans';
 }
 

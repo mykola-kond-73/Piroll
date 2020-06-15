@@ -12,7 +12,8 @@
     width: 5%;
 }
 
-.icon,.menu {
+.icon,
+.menu {
     display: flex;
     justify-content: flex-end;
 }
@@ -33,4 +34,16 @@
 
 .active span {
     color: #10c9c3;
+}
+
+
+
+@media (max-width:500px) {
+    .menu {
+        flex-wrap: wrap;
+    }
+
+    .menu div {
+        padding: 0 10px 10px;
+    }
 }

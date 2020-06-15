@@ -19,3 +19,15 @@
     width: 550px;
     text-align: center;
 }
+
+@media (max-width:600px) {
+
+    .textInfo>div>div {
+        left: 30%;
+    }
+
+    .textInfo>div>p {
+        width: 200px;
+    }
+
+}

@@ -19,3 +19,19 @@
 .img>div>img{
     width:550px;
 }
+
+@media(max-width:1000px){
+    .img>div>img{
+        width:300px;
+    }
+}
+
+@media(max-width:675px){
+    .container>div{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .text{
+        padding-top:20px;
+    }
+}

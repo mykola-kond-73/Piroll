@@ -50,3 +50,12 @@
 .img>div>div>img {
     width: 300px;
 }
+
+@media (max-width:801px){
+    .statistics{
+     justify-content: center;   
+    }
+    .greyLine{
+        width:200px;
+    }
+}
