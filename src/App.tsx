@@ -1,13 +1,16 @@
 import React from 'react'
 import classes from './App.module.css'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './redux/redux'
 import Nav from './Components/Header/Header'
 import Home from './Components/Home/HomeContainer'
 import Footer from './Components/Footer/Footer'
-import WorkContainer from './Components/Work/WorkContainer'
-import AboutMeContainer from './Components/AboutMe/AboutMeContainer'
+import { LazyComponentHOC } from './HOC/LazyComponent'
+
+const About = React.lazy(() => import('./Components/AboutMe/AboutMeContainer'))
+const Work = React.lazy(() => import('./Components/Work/WorkContainer'))
+// const Contact = React.lazy(() => import('./components/FindUsers/FindUsers'))
 
 const App = () => {
   return (
@@ -17,15 +20,17 @@ const App = () => {
           <Nav />
           <Switch>
             <Route path='/home' render={() => <Home />} />
-            <Route path='/work/:projectId?' render={() => <WorkContainer />} />
-            <Route path='/about' render={() =><AboutMeContainer/> } />
+            <Route path='/work/:projectId?' render={() => LazyComponentHOC(Work)} />
+            <Route path='/about' render={() => LazyComponentHOC(About)} />
+            {/* <Route path='/contact' render={()=>LazyComponentHOC(Contact)} /> */}
+            <Route path='' render={() => <Redirect to='/home' />} />
             {/*   
           <Route path='/process' render={()=>} />
           <Route path='/services' render={()=>} />
           <Route path='/testmonials' render={()=>} />
-          <Route path='/contact' render={()=>} />  */}
+            */}
           </Switch>
-          <Footer/>
+          <Footer />
         </Provider>
       </BrowserRouter>
     </div>

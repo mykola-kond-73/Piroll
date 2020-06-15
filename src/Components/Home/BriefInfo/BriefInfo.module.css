@@ -2,7 +2,6 @@
     /* background-color: #e5e5e9; */
     background-color: #dee8ea;
     font-family: 'Nunito Sans';
-    font-size: 11px;
     height: 550px;
     align-items: flex-end;
     top: -28px;
@@ -38,8 +37,6 @@
 }
 
 .textInfo>div>div {
-    font-size: 23px;
-    font-weight: 700;
     padding-bottom: 15px;
 }
 
@@ -47,7 +44,7 @@
     width: 260px;
     line-height: 15px;
     text-align: justify;
-    color: #7a7c7c;
+    font-size: 11px;
 }
 
 .aButton>div>div {

@@ -10,7 +10,7 @@ const Statistics: FC<propsType> = props => {
                 <div>
                     <h2>
                         Professional Skills
-                </h2>
+                    </h2>
                     <div className={classes.lineBlock}>
                         <span>UI/UX DESIGN  <span>{props.design}%</span></span>
                         <div className={classes.greyLine}>

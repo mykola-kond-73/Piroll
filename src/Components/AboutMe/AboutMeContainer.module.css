@@ -36,8 +36,6 @@
 .bodyText>div>div,
 .container>header>div>div,
 .needProjectImg>div>div {
-    font-weight: 600;
-    font-size: 22px;
     padding-bottom: 10px;
 }
 
@@ -48,7 +46,6 @@
 }
 .bodyText>div>p,
 .needProjectImg>div>p {
-    color: #adacac;
     font-size: 13px;
 }
 

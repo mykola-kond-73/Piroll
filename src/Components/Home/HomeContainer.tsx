@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ComponentType } from 'react'
 import BriefInfo from './BriefInfo/BriefInfo'
 import HomeAboutMe from './HomeAboutMe/HomeAboutMe'
 import Statistics from './Statistics/Statistics'
@@ -18,6 +18,8 @@ import HomeProjectPageContainer from './HomeProjectPage/HomeProjectPageContainer
 import Preloader from '../Fragment/Preloader/Preloader'
 import src from '../../media/icons/png/multimedia.png'
 import Services from './Services/Services'
+import { compose } from 'redux'
+import { Redirect } from 'react-router'
 
 class HomeContainer extends React.Component<Props> {
     first() {
@@ -86,6 +88,8 @@ const updateIsFetching = actionsHome.updateIsFething
 
 const connector = connect(mapStateToProps, { getHomeContent, getReviewContent, getFaceProgect, updateIsFetching })
 
-export default connector(HomeContainer)
+export default compose<ComponentType>(
+    connector,
+    )(HomeContainer)
 
 type Props = ConnectedProps<typeof connector>

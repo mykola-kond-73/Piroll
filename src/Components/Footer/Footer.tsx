@@ -3,9 +3,10 @@ import classes from './Footer.module.css'
 import { NavLink, withRouter, RouteComponentProps } from 'react-router-dom'
 
 const Footer: FC<PropsType> = props => {
-const location=props.location.pathname
+    debugger;
+    const location = props.location.pathname
     return (
-        <footer className={classes.footer} style={location==='/work'||'/about'?{position:'relative',top:'50px'}:{}}>
+        <footer className={classes.footer} style={location == '/work' || '/about' ? { position: 'relative', top: '50px' } : {}}>
             <div>
                 <div className={classes.title}>Piroll Design, Inc.</div>
                 <div>&copy; 2017 Piroll. All rights reserved.
@@ -17,6 +18,7 @@ const location=props.location.pathname
                 <div>44 987 065 908</div>
             </address>
             <nav className={classes.nav}>
+                <div><NavLink to='/home' ><span>Home</span></NavLink></div>
                 <div><NavLink to='/work' ><span>Work</span></NavLink></div>
                 <div><NavLink to='/about' ><span>About</span></NavLink></div>
                 <div><NavLink to='/services' ><span>Services</span></NavLink></div>

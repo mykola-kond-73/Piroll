@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ComponentType } from 'react'
 import { connect, ConnectedProps } from 'react-redux'
 import { AppStateType } from '../../redux/redux'
 import TextInfo from '../Fragment/TextInfo/TextInfo'
@@ -14,6 +14,7 @@ import src from '../../media/images/jonny-caspari-f1URIvy-Yg8-unsplash.jpg'
 import classes from './AboutMeContainer.module.css'
 import { getWorkTitleTextContent } from '../../redux/redusers/projectReducer'
 import { getReviewContent, getAboutMeContent } from '../../redux/redusers/homeReducer'
+import { compose } from 'redux'
 
 
 class AboutMeContainer extends React.Component<Props>{
@@ -72,6 +73,8 @@ const mapStateToProps = (state: AppStateType) => {
 
 const connector = connect(mapStateToProps, { getWorkTitleTextContent, getAboutMeContent })
 
-export default connector(AboutMeContainer)
+export default compose<ComponentType>(
+    connector
+)(AboutMeContainer)
 
 type Props = ConnectedProps<typeof connector>
