@@ -8,6 +8,7 @@ import  thunkMiddleware from 'redux-thunk' // імпорт проміжного 
 import { reducer as formReducer } from 'redux-form'
 import homeReducer from '../redux/redusers/homeReducer'
 import projectReducer from './redusers/projectReducer'
+import contactReducer from './redusers/contactReducer'
 
 type RootReducerType=typeof reducers
 export type AppStateType=ReturnType<RootReducerType>
@@ -15,7 +16,8 @@ export type AppStateType=ReturnType<RootReducerType>
 let reducers=combineReducers({
     form: formReducer,
     home:homeReducer,
-    project:projectReducer
+    project:projectReducer,
+    contact:contactReducer
 })
 //@ts-ignore
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

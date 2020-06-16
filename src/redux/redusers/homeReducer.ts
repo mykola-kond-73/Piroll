@@ -102,7 +102,9 @@ const initialState = {
     aboutMeBodyTitle: 'About me',
     aboutMeBodyText: 'Given let woters air sea had you`ll, may seed abundantly fish. Were you`ll earth forgth wingen above brought. Own darkness they`re him can`t fourth sea palce have. So the Above May stars cattle fruitface face shell. Tree in, winged. Every sings male firmament us. Morneng him.',
     aboutMeNeedProjectTitle: 'Need a Project?',
-    aboutMeNeedProjectText: 'Let us know what you`re looking for in an agency. We`ll take a look and see if this could be the start of something beautiful.'
+    aboutMeNeedProjectText: 'Let us know what you`re looking for in an agency. We`ll take a look and see if this could be the start of something beautiful.',
+
+    authMeIsFetching: true
 
 }
 
@@ -139,8 +141,20 @@ const homeReducer = (state = initialState, action: actionsHomeType) => {
                 aboutMeHeaderTitle: action.aboutMeContent.aboutMeHeaderTitle,
                 aboutMeBodyTitle: action.aboutMeContent.aboutMeBodyTitle,
                 aboutMeBodyText: action.aboutMeContent.aboutMeBodyText,
-                aboutMeNeedProjectTitle: action.aboutMeContent.aboutMeNeedProjectTitle,
-                aboutMeNeedProjectText: action.aboutMeContent.aboutMeNeedProjectText
+                
+            }
+
+case 'ADD_NEED_PROJECT_CONTENT':
+    return{
+        ...state,
+        aboutMeNeedProjectTitle: action.needProjectContent.aboutMeNeedProjectTitle,
+        aboutMeNeedProjectText: action.needProjectContent.aboutMeNeedProjectText
+    }
+
+        case 'UP_DATE_AUTH_ME_IS_FETCHING':
+            return {
+                ...state,
+                aboutMeIsFetching: action.aboutMeIsFetching
             }
 
         default:
@@ -152,7 +166,9 @@ export const actionsHome = {
     addHomeContent: (homeContent: homeContentType) => ({ type: 'ADD_HOME_CONTENT', homeContent } as const),
     addReviewsContent: (reviewsContent: reviewsType) => ({ type: 'ADD_REVIEWS_CONTENT', reviewsContent } as const),
     updateIsFething: (isFetching: boolean) => ({ type: 'UP_DATE_IS_FETCHING', isFetching } as const),
-    addAboutMeContent: (aboutMeContent: aboutMeType) => ({ type: 'ADD_ABOUT_ME_CONTENT', aboutMeContent } as const)
+    addAboutMeContent: (aboutMeContent: aboutMeType) => ({ type: 'ADD_ABOUT_ME_CONTENT', aboutMeContent } as const),
+    updateAuthMeIsFetching: (aboutMeIsFetching: boolean) => ({ type: 'UP_DATE_AUTH_ME_IS_FETCHING', aboutMeIsFetching } as const),
+    addNeedProjectContent:(needProjectContent:needProjectContentType)=>({type:'ADD_NEED_PROJECT_CONTENT',needProjectContent}as const)
 }
 
 export const getHomeContent = (): homeThunkType => async (dispatch) => {
@@ -176,6 +192,14 @@ export const getAboutMeContent = (): homeThunkType => async (dispatch) => {
 
     if (responce.resultCode === ResultCodeEnum.Succes) {
         dispatch(actionsHome.addAboutMeContent(responce.data))
+    }
+}
+
+export const getNeedProjectContent=():homeThunkType=>async (dispatch)=>{
+    let responce=await homeAPI.getNeedProjectContent()
+
+    if(responce.resultCode===ResultCodeEnum.Succes){
+        dispatch(actionsHome.addNeedProjectContent(responce.data))
     }
 }
 
@@ -214,6 +238,9 @@ export type aboutMeType = {
     aboutMeHeaderTitle: string
     aboutMeBodyTitle: string
     aboutMeBodyText: string
+}
+
+export type needProjectContentType={
     aboutMeNeedProjectTitle: string
     aboutMeNeedProjectText: string
 }

@@ -1,0 +1,15 @@
+.button .blockButton {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+@media(max-width:670px) {
+    .field {
+        width: 310px;
+    }
+}

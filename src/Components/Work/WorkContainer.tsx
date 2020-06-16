@@ -5,21 +5,26 @@ import { compose } from 'redux'
 import { withRouter, RouteComponentProps } from 'react-router'
 import ProjectPageContainer from './ProjectPage/ProjectPageContainer'
 import SeparatePageContainer from './ProjectPage/SeparatePage/SeparatePageContainer'
-import { getPageSize, getWorkTitle, getWorkText } from '../../redux/selectors/projectSelector'
+import { getPageSize, getWorkTitle, getWorkText, getWorkIsFetching } from '../../redux/selectors/projectSelector'
 import { getFaceProgect, actionsProject, getWorkTitleTextContent } from '../../redux/redusers/projectReducer'
 import { incrementFunction } from '../../Untils/Until'
 import TextInfo from '../Fragment/TextInfo/TextInfo'
 import classes from './Work.module.css'
+import Preloader from '../Fragment/Preloader/Preloader'
+import img from '../../media/icons/png/multimedia.png'
 
 class WorkContainer extends React.Component<Props & PropsType>{
 
     getProgectContent() {
-        this.props.getFaceProgect(this.props.pageSize)
+        let promise = Promise.all([this.props.getFaceProgect(this.props.pageSize), this.props.getWorkTitleTextContent()]).then(() => {
+            this.props.updateWorkIsFetching(false)
+        })
+
     }
 
     componentDidMount() {
         this.getProgectContent()
-        this.props.getWorkTitleTextContent()
+
     }
 
     componentDidUpdate(prevProps: Props) {
@@ -28,8 +33,11 @@ class WorkContainer extends React.Component<Props & PropsType>{
         }
     }
 
+    componentWillMount() {
+        this.props.updateWorkIsFetching(true)
+    }
+
     updatePageSize() {
-        // this.props.updatePageSize(this.props.pageSize + 12)
         this.props.incrementFunction(this.props.updatePageSize, 12, this.props.pageSize)
     }
 
@@ -39,6 +47,10 @@ class WorkContainer extends React.Component<Props & PropsType>{
         if (this.props.match.params.projectId) {
             return <SeparatePageContainer />
         } else {
+            //*>>> прелоадер 
+            // if (this.props.workIsFetching) {
+            //     return <Preloader img={img} />
+            // }
             return (
                 <div className={classes.container}>
                     <div className={classes.textInfo}>
@@ -49,6 +61,7 @@ class WorkContainer extends React.Component<Props & PropsType>{
                     </div>
                 </div>
             )
+
         }
     }
 }
@@ -57,13 +70,15 @@ const mapStateToProps = (state: AppStateType) => {
     return {
         pageSize: getPageSize(state),
         workTitle: getWorkTitle(state),
-        workText: getWorkText(state)
+        workText: getWorkText(state),
+        workIsFetching: getWorkIsFetching(state)
     }
 }
 
+const updateWorkIsFetching = actionsProject.updateWorkIsFetching
 const updatePageSize = actionsProject.updatePageSize
 
-const connector = connect(mapStateToProps, { getFaceProgect, updatePageSize, incrementFunction, getWorkTitleTextContent })
+const connector = connect(mapStateToProps, {getFaceProgect, updatePageSize, incrementFunction, getWorkTitleTextContent, updateWorkIsFetching  })
 
 export default compose<ComponentType>(
     connector,

@@ -23,3 +23,11 @@ export const getWorkTitle=(state:AppStateType)=>{
 export const getWorkText=(state:AppStateType)=>{
     return state.project.workText
 }
+
+export const getIsFetchingProject=(state:AppStateType)=>{
+    return state.project.isFetchingProject
+}
+
+export const getWorkIsFetching=(state:AppStateType)=>{
+    return state.project.workIsFetching
+}

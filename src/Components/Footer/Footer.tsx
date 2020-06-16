@@ -3,7 +3,6 @@ import classes from './Footer.module.css'
 import { NavLink, withRouter, RouteComponentProps } from 'react-router-dom'
 
 const Footer: FC<PropsType> = props => {
-    debugger;
     const location = props.location.pathname
     return (
         <footer className={classes.footer} style={location == '/work' || '/about' ? { position: 'relative', top: '50px' } : {}}>

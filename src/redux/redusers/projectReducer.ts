@@ -53,10 +53,12 @@ const initialState = {
     pageSize: 8,
     tototalProjectCount: 548,
 
-    isFetchingProject: false,
+    isFetchingProject: true,
+    workIsFetching: true,
 
     workTitle: 'UI/UX & Graphic Designer',
-    workText: 'I am a Graphic & Web Designer based in New York, specializing in User Interface Design and Development.'
+    workText: 'I am a Graphic & Web Designer based in New York, specializing in User Interface Design and Development.',
+
 }
 
 const projectReducer = (state = initialState, actions: actionsProjectType) => {
@@ -87,11 +89,17 @@ const projectReducer = (state = initialState, actions: actionsProjectType) => {
                 workText: actions.workTitleText.workText,
             }
 
-            case 'UP_DATE_IS_FECTHING_PROJECT':
-                return{
-                    ...state,
-                    isFetching:actions.isFetching
-                }
+        case 'UP_DATE_IS_FECTHING_PROJECT':
+            return {
+                ...state,
+                isFetching: actions.isFetching
+            }
+
+        case 'UP_DATE_WORK_IS_FETCHING':
+            return {
+                ...state,
+                workIsFetching: actions.workIsFetching
+            }
 
         default:
             return state
@@ -103,7 +111,8 @@ export const actionsProject = {
     addProjectPage: (projectPageData: projectPageType | homeProjectType) => ({ type: 'ADD_PROJECT_PAGE', projectPageData } as const),
     addWorkTitleText: (workTitleText: workTitleTextType) => ({ type: 'ADD_WORK_TITLE_TEXT', workTitleText } as const),
     updatePageSize: (newPageSize: number) => ({ type: 'UP_DATE_PAGESIZE', newPageSize } as const),
-    updateIsFetchingProject: (isFetching: boolean) => ({ type: 'UP_DATE_IS_FECTHING_PROJECT', isFetching } as const)
+    updateIsFetchingProject: (isFetching: boolean) => ({ type: 'UP_DATE_IS_FECTHING_PROJECT', isFetching } as const),
+    updateWorkIsFetching: (workIsFetching: boolean) => ({ type: 'UP_DATE_WORK_IS_FETCHING', workIsFetching } as const)
 }
 
 export const getFaceProgect = (pageSize = 8): projectThunkType => async (dispatch) => {
@@ -119,14 +128,14 @@ export const getBodyProject = (projectId: number): projectThunkType => async (di
 
     if (response.resultCode === ResultCodeEnum.Succes) {
         dispatch(actionsProject.addProjectPage(response.data))
-        dispatch(actionsProject.updateIsFetchingProject(true))
+        dispatch(actionsProject.updateIsFetchingProject(false))
     }
 }
 
-export const getWorkTitleTextContent=():projectThunkType=>async (dispatch)=>{
-    let responce=await projectAPI.getWorkTitleText()
+export const getWorkTitleTextContent = (): projectThunkType => async (dispatch) => {
+    let responce = await projectAPI.getWorkTitleText()
 
-    if(responce.resultCode===ResultCodeEnum.Succes){
+    if (responce.resultCode === ResultCodeEnum.Succes) {
         dispatch(actionsProject.addWorkTitleText(responce.data))
     }
 }

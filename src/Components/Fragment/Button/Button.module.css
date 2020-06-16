@@ -1,7 +1,16 @@
-.button{
-    background-color: #10c9c3;
+.button {
+    padding: 10px
 }
 
-.button>button{
-    color:#9a9a9a;
+.button>button {
+    background-color: rgb(16, 201, 195);
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 11px;
+    padding: 12px 17px;
+}
+
+.button>button:disabled {
+    background-color: black;
 }

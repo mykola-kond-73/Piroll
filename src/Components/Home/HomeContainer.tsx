@@ -7,12 +7,12 @@ import { AppStateType } from '../../redux/redux'
 import { connect, ConnectedProps } from 'react-redux'
 import { getHomeContent, getReviewContent } from '../../redux/redusers/homeReducer'
 import { getFaceProgect } from '../../redux/redusers/projectReducer'
-import { actionsHome } from '../../redux/redusers/homeReducer'
+import { actionsHome,getNeedProjectContent } from '../../redux/redusers/homeReducer'
 import {
     getIsFetching, getTitleBrief, getTextBrief,
     getTextButtonBrief, getTitleHomeAboutMe, getTextHomeAboutMe,
     getMarketing, getDevelopment, getDesign,
-    getReview,getServices
+    getReview, getServices
 } from '../../redux/selectors/homeSelector'
 import HomeProjectPageContainer from './HomeProjectPage/HomeProjectPageContainer'
 import Preloader from '../Fragment/Preloader/Preloader'
@@ -20,10 +20,11 @@ import src from '../../media/icons/png/multimedia.png'
 import Services from './Services/Services'
 import { compose } from 'redux'
 import { Redirect } from 'react-router'
+import HomeContactContainer from './HomeContact/HomeContactContainer'
 
 class HomeContainer extends React.Component<Props> {
     first() {
-        let promise = Promise.all([getHomeContent(), getReviewContent(), getFaceProgect()]).then(() => {
+        let promise = Promise.all([this.props.getHomeContent(), this.props.getReviewContent(), this.props.getFaceProgect()]).then(() => {
             this.props.updateIsFetching(true)
         })
     }
@@ -32,36 +33,39 @@ class HomeContainer extends React.Component<Props> {
     }
 
     render() {
+        //*>>> прелоадер
+        // if (!this.props.isFetching) {
+        //     return <Preloader img={src} />
+        // } 
+        return (
 
-        if (!this.props.isFetching) {
-            return <Preloader img={src} />
-        } else {
-            return (
-
+            <div>
                 <div>
-                    <div>
-                        <BriefInfo title={this.props.briefInfoTitle} text={this.props.briefInfoText} textButton={this.props.briefInfoTextButton} />
-                    </div>
-                    <div>
-                        <HomeAboutMe title={this.props.homeAboutMeTitle} text={this.props.homeAboutMeText} />
-                    </div>
-                    <div>
-                        <Statistics design={this.props.design} development={this.props.development} marketing={this.props.marketing} />
-                    </div>
-                    <div>
-                        <Reviews reviews={this.props.reviews} />
-                    </div>
-                    <div>
-                        <HomeProjectPageContainer/>
-                    </div>
-                    <div>
-                        <Services services={this.props.services} />
-                    </div>
+                    <BriefInfo title={this.props.briefInfoTitle} text={this.props.briefInfoText} textButton={this.props.briefInfoTextButton} />
                 </div>
-            )
-        }
+                <div>
+                    <HomeAboutMe title={this.props.homeAboutMeTitle} text={this.props.homeAboutMeText} />
+                </div>
+                <div>
+                    <Statistics design={this.props.design} development={this.props.development} marketing={this.props.marketing} />
+                </div>
+                <div>
+                    <Reviews reviews={this.props.reviews} />
+                </div>
+                <div>
+                    <HomeProjectPageContainer />
+                </div>
+                <div>
+                    <Services services={this.props.services} />
+                </div>
+                <div>
+                    <HomeContactContainer/>
+                </div>
+            </div>
+        )
     }
 }
+
 
 const mapStateToProps = (state: AppStateType) => {
     return {
@@ -80,16 +84,16 @@ const mapStateToProps = (state: AppStateType) => {
 
         reviews: getReview(state),
 
-        services:getServices(state)
+        services: getServices(state),
     }
 }
 
 const updateIsFetching = actionsHome.updateIsFething
 
-const connector = connect(mapStateToProps, { getHomeContent, getReviewContent, getFaceProgect, updateIsFetching })
+const connector = connect(mapStateToProps, {getHomeContent, getReviewContent, getFaceProgect, updateIsFetching,getNeedProjectContent})
 
 export default compose<ComponentType>(
     connector,
-    )(HomeContainer)
+)(HomeContainer)
 
 type Props = ConnectedProps<typeof connector>

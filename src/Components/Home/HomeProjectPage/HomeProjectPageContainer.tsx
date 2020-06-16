@@ -24,7 +24,6 @@ class HomeProjectPageContainer extends React.Component<Props>{
     }
 
     updatePageSize() {
-        // this.props.updatePageSize(this.props.pageSize + 8)
         this.props.incrementFunction(this.props.updatePageSize,8,this.props.pageSize)
 
     }
@@ -51,7 +50,7 @@ const mapStateToProps = (state: AppStateType) => {
 
 const updatePageSize = actionsProject.updatePageSize
 
-const connector = connect(mapStateToProps, { updatePageSize, getFaceProgect,incrementFunction })
+const connector = connect(mapStateToProps, { updatePageSize,incrementFunction, getFaceProgect })
 
 export default connector(HomeProjectPageContainer)
 

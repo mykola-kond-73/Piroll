@@ -63,3 +63,7 @@ export const getAboutMeNeedProjectTitle = (state: AppStateType) => {
 export const getAboutMeNeedProjectText = (state: AppStateType) => {
     return state.home.aboutMeNeedProjectText
 }
+
+export const getAuthMeIsFething=(state:AppStateType)=>{
+    return state.home.authMeIsFetching
+}

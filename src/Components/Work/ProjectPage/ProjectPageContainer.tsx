@@ -34,8 +34,6 @@ export type ownProps={
     updatePageSize:()=>void
 }
 
-
-
 type projectPageContainerPropsType = ConnectedProps<typeof connector>
 
 type Props=projectPageContainerPropsType&ownProps

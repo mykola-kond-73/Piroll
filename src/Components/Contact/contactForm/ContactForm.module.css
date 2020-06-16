@@ -1,0 +1,66 @@
+.name,
+.email,
+.title,
+.comment {
+    padding: 10px;
+}
+
+.name input,
+.email input,
+.title input,
+.comment textarea {
+    padding: 7px;
+    border: none;
+}
+
+.name input:focus,
+.email input:focus,
+.title input:focus,
+.comment textarea:focus,
+.button button:focus {
+    outline: none;
+}
+
+.name,
+.email {
+    display: inline-block;
+}
+
+.name input,
+.email input {
+    width: 200px
+}
+
+.comment textarea {
+    height: 100px
+}
+
+.title input,
+.comment textarea {
+    width: 434px
+}
+
+@media(max-width:830px){
+    
+    .name input,
+    .email input{
+        width:128px
+    }
+    .title input,
+    .comment textarea{
+        width:290px
+    }
+}
+
+@media(max-width:670px){
+    .from{
+        padding-top: 30px;
+    }
+    
+    .name input,
+    .email input,
+    .title input,
+    .comment textarea{
+        width:280px
+    }
+}
