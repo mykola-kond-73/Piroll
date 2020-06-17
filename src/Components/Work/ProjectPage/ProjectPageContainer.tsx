@@ -31,8 +31,10 @@ export default compose<ComponentType>(
 )(ProjectPageContainer)
 
 export type ownProps={
-    updatePageSize:()=>void
-}
+    updatePageSize:(newPageSize: number) => {
+    type: "UP_DATE_PAGESIZE";
+    newPageSize: number
+}}
 
 type projectPageContainerPropsType = ConnectedProps<typeof connector>
 

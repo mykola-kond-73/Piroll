@@ -5,11 +5,13 @@
     align-items: center;
     font-size:11px;
     height:150px ;
+    
+    
 }
+
 .footer,
 .nav span{
     color:#9a9a9a;
-
 }
 
 .footer>div{

@@ -1,11 +1,10 @@
 import React, { FC } from 'react'
 import classes from './Footer.module.css'
-import { NavLink, withRouter, RouteComponentProps } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
-const Footer: FC<PropsType> = props => {
-    const location = props.location.pathname
+const Footer: FC = () => {
     return (
-        <footer className={classes.footer} style={location == '/work' || '/about' ? { position: 'relative', top: '50px' } : {}}>
+        <footer className={classes.footer} >
             <div>
                 <div className={classes.title}>Piroll Design, Inc.</div>
                 <div>&copy; 2017 Piroll. All rights reserved.
@@ -31,10 +30,6 @@ const Footer: FC<PropsType> = props => {
             </nav>
         </footer>
     )
+    
 }
-
-export default withRouter(Footer)
-
-type PathParamsType = {}
-
-type PropsType = RouteComponentProps<PathParamsType>
+export default Footer

@@ -10,7 +10,7 @@ import classess from './HomeContactContainer.module.css'
 class HomeContactContainer extends React.Component<Props>{
     render() {
         return (
-            <div className={classes.needProject}>
+            <div className={`${classes.needProject} ${classess.body}`}>
                 <div className={classes.needProjectImg}>
                     <TextInfo title={this.props.aboutMeNeedProjectTitle} text={this.props.aboutMeNeedProjectText} />
                 </div>

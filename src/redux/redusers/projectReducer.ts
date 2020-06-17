@@ -142,7 +142,7 @@ export const getWorkTitleTextContent = (): projectThunkType => async (dispatch) 
 
 export default projectReducer
 
-type actionsProjectType = InfinitActionsCreatorType<typeof actionsProject>
+export type actionsProjectType = InfinitActionsCreatorType<typeof actionsProject>
 
 type projectThunkType = BaseThunkType<actionsProjectType>
 

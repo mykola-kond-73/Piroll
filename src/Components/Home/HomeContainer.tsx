@@ -12,15 +12,15 @@ import {
     getIsFetching, getTitleBrief, getTextBrief,
     getTextButtonBrief, getTitleHomeAboutMe, getTextHomeAboutMe,
     getMarketing, getDevelopment, getDesign,
-    getReview, getServices
+    getReview, getServices, getImages
 } from '../../redux/selectors/homeSelector'
 import HomeProjectPageContainer from './HomeProjectPage/HomeProjectPageContainer'
 import Preloader from '../Fragment/Preloader/Preloader'
 import src from '../../media/icons/png/multimedia.png'
 import Services from './Services/Services'
 import { compose } from 'redux'
-import { Redirect } from 'react-router'
 import HomeContactContainer from './HomeContact/HomeContactContainer'
+import SponsorImages from './Information/SponsorImages'
 
 class HomeContainer extends React.Component<Props> {
     first() {
@@ -59,6 +59,9 @@ class HomeContainer extends React.Component<Props> {
                     <Services services={this.props.services} />
                 </div>
                 <div>
+                    <SponsorImages images={this.props.images} />
+                </div>
+                <div>
                     <HomeContactContainer/>
                 </div>
             </div>
@@ -85,6 +88,7 @@ const mapStateToProps = (state: AppStateType) => {
         reviews: getReview(state),
 
         services: getServices(state),
+        images:getImages(state)
     }
 }
 

@@ -67,3 +67,7 @@ export const getAboutMeNeedProjectText = (state: AppStateType) => {
 export const getAuthMeIsFething=(state:AppStateType)=>{
     return state.home.authMeIsFetching
 }
+
+export const getImages=(state:AppStateType)=>{
+    return state.home.images
+}

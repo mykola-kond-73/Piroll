@@ -2,7 +2,6 @@
     position: relative;
     top:50px;
     font-family:'Nunito Sans', Arial;
-    
 }
 
 .container>div{
@@ -20,6 +19,10 @@
     width:550px;
 }
 
+.paginator{
+    margin: 30px 0;
+}
+
 @media(max-width:1000px){
     .img>div>img{
         width:300px;
@@ -33,5 +36,6 @@
     }
     .text{
         padding-top:20px;
+        padding-right: 0;
     }
 }

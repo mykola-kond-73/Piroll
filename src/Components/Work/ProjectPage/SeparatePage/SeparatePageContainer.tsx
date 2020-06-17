@@ -7,6 +7,7 @@ import SeparatePage from './SeparatePage'
 import Paginator from '../../../Fragment/Paginator/Paginator'
 import Preloader from '../../../Fragment/Preloader/Preloader'
 import img from '../../../../media/icons/png/multimedia.png'
+import classes from './SeparatePage.module.css'
 
 class SeparatePageContainer extends React.Component<Props>{
 
@@ -30,8 +31,7 @@ class SeparatePageContainer extends React.Component<Props>{
                 <div>
                     <SeparatePage progectPage={this.props.progectPage} />
                 </div>
-                <div>
-                    //@ts-ignore
+                <div  className={classes.paginator}>
                     <Paginator projectId={+this.props.progectPage.projectId} updateIsFetchingProject={() => this.props.updateIsFetchingProject(false)} />
                 </div>
             </div>

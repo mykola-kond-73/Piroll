@@ -23,7 +23,7 @@ const App = () => {
             <Route path='/home' render={() => <Home />} />
             <Route path='/work/:projectId?' render={() => LazyComponentHOC(Work)} />
             <Route path='/about' render={() => LazyComponentHOC(About)} />
-            <Route path='/contact' render={()=><ContactContainer/>} />
+            <Route path='/contact' render={()=>LazyComponentHOC(Contact)} />           
             {/*   
           <Route path='/process' render={()=>} />
           <Route path='/services' render={()=>} />
