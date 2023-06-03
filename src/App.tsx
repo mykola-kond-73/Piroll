@@ -7,7 +7,6 @@ import Nav from './Components/Header/Header'
 import Home from './Components/Home/HomeContainer'
 import Footer from './Components/Footer/Footer'
 import { LazyComponentHOC } from './HOC/LazyComponent'
-import ContactContainer from './Components/Contact/ContactContainer'
 
 const About = React.lazy(() => import('./Components/AboutMe/AboutMeContainer'))
 const Work = React.lazy(() => import('./Components/Work/WorkContainer'))

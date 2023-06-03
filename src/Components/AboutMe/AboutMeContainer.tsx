@@ -13,10 +13,8 @@ import {
 import src from '../../media/images/jonny-caspari-f1URIvy-Yg8-unsplash.jpg'
 import classes from './AboutMeContainer.module.css'
 import { getWorkTitleTextContent } from '../../redux/redusers/projectReducer'
-import { getReviewContent, getAboutMeContent, actionsHome,getNeedProjectContent } from '../../redux/redusers/homeReducer'
+import { getAboutMeContent, actionsHome,getNeedProjectContent } from '../../redux/redusers/homeReducer'
 import { compose } from 'redux'
-import Preloader from '../Fragment/Preloader/Preloader'
-import img from '../../media/icons/png/multimedia.png'
 
 
 class AboutMeContainer extends React.Component<Props>{

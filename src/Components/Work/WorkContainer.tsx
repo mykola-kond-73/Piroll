@@ -10,8 +10,6 @@ import { getFaceProgect, actionsProject, getWorkTitleTextContent } from '../../r
 import { incrementFunction } from '../../Untils/Until'
 import TextInfo from '../Fragment/TextInfo/TextInfo'
 import classes from './Work.module.css'
-import Preloader from '../Fragment/Preloader/Preloader'
-import img from '../../media/icons/png/multimedia.png'
 
 class WorkContainer extends React.Component<Props & PropsType>{
 

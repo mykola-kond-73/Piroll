@@ -4,9 +4,9 @@ import { contactInfoType } from '../redux/redusers/contactReducer'
 
 export const ContactAPI={
     postData:(data:ContactFormDataType)=>{
-        return instance.post<ResponseTypes<ContactFormDataType>>('').then(responce=>responce.data)
+        return instance.post<ResponseTypes<ContactFormDataType>>('/').then(responce=>responce.data)
     },
     getContactInfo:()=>{
-        return instance.get<ResponseTypes< contactInfoType>>('').then(responce=>responce.data)
+        return instance.get<ResponseTypes< contactInfoType>>('/').then(responce=>responce.data)
     }
 } 

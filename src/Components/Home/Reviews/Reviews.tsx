@@ -10,7 +10,7 @@ const Reviews: FC<propsType> = props => {
                 {
                     props.reviews.map(elem => {
                         return (
-                            <div className={classes.review}>
+                            <div className={classes.review} key={elem.text}>
                                 <div>
                                     <Image src={elem.img} alt='***' />
                                 </div>

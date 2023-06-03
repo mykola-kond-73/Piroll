@@ -3,13 +3,13 @@ import { homeProjectType, projectPageType, workTitleTextType } from '../redux/re
 
 export const projectAPI = {
     getFaceProject(pageSize: number) {
-        return instance.get<ResponseTypes<getFaceProjectType>>('').then(response => response.data)
+        return instance.get<ResponseTypes<getFaceProjectType>>('/').then(response => response.data)
     },
     getBodyProject(projectId:number) {
-        return instance.get<ResponseTypes<projectPageType>>('').then(response => response.data)
+        return instance.get<ResponseTypes<projectPageType>>('/').then(response => response.data)
     },
     getWorkTitleText(){
-        return instance.get<ResponseTypes<workTitleTextType>>('').then(responce=>responce.data)
+        return instance.get<ResponseTypes<workTitleTextType>>('/').then(responce=>responce.data)
     }
 }
 

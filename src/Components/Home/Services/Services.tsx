@@ -10,7 +10,7 @@ const Services: FC<propsType> = props => {
             <div className={classes.services}>
                 {props.services.map(elem => {
                     return (
-                        <div className={classes.service}>
+                        <div className={classes.service} key={elem.title}>
                             <div className={classes.img}>
                                 <Image src={elem.img} alt='***' />
                             </div>

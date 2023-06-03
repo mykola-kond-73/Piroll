@@ -31,11 +31,8 @@ class HomeProjectPageContainer extends React.Component<Props>{
     render() {
         return (
             <div>
-                {/* //! >>>
-                //! >>> ВИПРАВИТИ !!!!!
-                //! >>> 
-                */}
-                //@ts-ignore
+                {/* 
+                    // @ts-ignore */}
                 <ProjectPageContainer updatePageSize={this.updatePageSize} />
             </div>
         )

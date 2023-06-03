@@ -13,7 +13,6 @@ import src9 from '../../media/icons/png/002-origami.png'
 import src10 from '../../media/icons/png/003-star.png'
 import src11 from '../../media/icons/png/004-photos.png'
 import src12 from '../../media/icons/png/003-edit.png'
-import actions from 'redux-form/lib/actions'
 
 const initialState = {
     titleBrief: 'We Design and Develop',

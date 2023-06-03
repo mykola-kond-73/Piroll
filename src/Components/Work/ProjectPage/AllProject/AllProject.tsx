@@ -13,7 +13,7 @@ const AllProject: FC<propsType & ownProps> = props => {
                 {
                     props.allProject.map((elem, index) => {
                         return (
-                            <NavLink to={'work/' + `${elem.projectId}`} >
+                            <NavLink to={'work/' + `${elem.projectId}`} key={elem.projectId}>
                                 <div className={classes.elem}>
                                         {
                                             elem.img

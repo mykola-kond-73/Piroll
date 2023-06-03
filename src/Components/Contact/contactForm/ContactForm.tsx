@@ -14,7 +14,6 @@ const ContactFormContainer: FC<Props> = props => {
         // props.postContactData(formData)
         props.updateDisabled(true)
         console.log(formData)
-
     }
 
     return (
@@ -36,9 +35,7 @@ const connector = connect(mapStateToProps, { postContactData, updateDisabled })
 
 export default connector(ContactFormContainer)
 
-const ContactForm: FC<InjectedFormProps<ContactFormDataType, ownProps> & ownProps> = ({ handleSubmit, error, disabled }) => {
-debugger;
-    
+const ContactForm: FC<InjectedFormProps<ContactFormDataType, ownProps> & ownProps> = ({ handleSubmit, error, disabled }) => {    
     return (
         <form onSubmit={handleSubmit} className={classes.from}>
             <div className={classess.field} >
